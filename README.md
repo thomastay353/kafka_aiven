@@ -18,7 +18,23 @@ This repository demonstrates how to connect to an Aiven-managed Kafka broker usi
 
 ### Producer and Kafka Consumer Setup
 - Retrieve broker connection details and service credentials from the Aiven Portal.
+
+![alt text](assets/aiven_sasl_connection.png)
+
 - Download the Aiven CA certificate and import it into a Java keystore/truststore so Spark and other JVM clients can trust the broker.
+- The import code is in notebook 3.
+
+Credential example
+
+```yml
+AIVEN_USERNAME=user_name
+AIVEN_PASSWORD=password
+AIVEN_HOST=hostname
+AIVEN_PORT=port_number
+KEY_STORE_PASSWORD=key_store_password
+```
+
+Please copy `.env.example` to `.env` and copy the credentials to teh dotenv file.
 
 ### Spark Setup
 - Spark runs on the JVM, so it cannot use the same Python SSL context directly.
